@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
+<head>
+
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="footer, address, phone, icons" />
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" />
+
+<title>Data Import Success</title>
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+<link rel="stylesheet" href="assets/demo.css" />
+<link rel="stylesheet" href="assets/form-login.css" />
+<link rel="stylesheet" href="assets/header-second-bar.css"/>
+<link href='http://fonts.googleapis.com/css?family=Cookie'
+	rel='stylesheet' type='text/css' />
+
+
+</head>
+
+<header class="header-two-bars">
+
+	<div class="header-first-bar">
+
+		<div class="header-limiter">
+
+			<h1><img src="assets/uicbusiness_logo_red.png" height="50" width="230"
+			alt="User Image" /></h1>
+
+      <nav> 
+    		<a href="data-interaction.xhtml">Data Interaction</a> 
+    		<a href="#" class="selected">Data Import</a> 
+    		<a href="data-export.xhtml">Data Export</a> 
+    		<a href="descriptive-model.xhtml">Descriptive Stats</a>
+    		<a href="regression-model.xhtml" >Regression Analysis</a> 
+    		<a href="system-memo.xhtml">System Memo</a>
+  		</nav>
+			<h:form>
+			   <h:commandLink action="#{loginController.logout}" value="Logout" styleClass="logout-button" />
+      </h:form>
+		</div>
+
+	</div>
+
+	<div class="header-second-bar">
+
+		<div class="header-limiter">
+			<h2><a href="#">Data Import S17G307</a></h2>
+
+			<nav>
+				<a href="#"><i class="fa fa-comments-o"></i> </a>
+				
+			</nav>
+
+		</div>
+
+	</div>
+
+</header>
+
+<ul></ul>
+
+
+<ul>
+
+</ul>
+
+
+<div class="main-content">
+
+
+	<!-- You only need this form and the form-login.css -->
+	<h:form prependId="false" enctype="multipart/form-data" styleClass="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+				<div class="form-title-row">
+					<h1>File Import Success</h1>
+				</div>
+				<div class="form-row">
+					<label> <span>Message :</span>
+							<h:outputText value="#{dataImportModel.status}" /> 
+					</label>
+				</div>
+				
+				<div class="form-row">
+					<label> <span>Number of records:</span>
+							<h:outputText value="#{dataImportModel.rowCount}" /> 
+					</label>
+				</div>
+
+				<div class="form-row">
+					<label> <span>Number of entries per Record:</span>
+							<h:outputText value="#{dataImportModel.columnCount}" /> 
+					</label>
+				</div>
+				
+				<div class="form-row">
+					<label> <span>File Label:</span>
+							<h:outputText value="#{dataImportModel.label}" /> 
+					</label>
+				</div>
+				
+				<div class="form-row">
+					<label> <span>File Name:</span>
+							<h:outputText value="#{dataImportModel.fileName }" /> 
+					</label>
+				</div>
+				
+				<div class="form-row">
+					<label> <span>File Type:</span>
+							<h:outputText value="#{dataImportModel.fileType}" /> 
+					</label>
+				</div>
+			
+				<div class="form-row">
+					<label> <span>File Size:</span>
+							<h:outputText value="#{dataImportModel.fileSize}" /> 
+					</label>
+				</div>
+				<div class="form-row">
+					<label> <span>File Content Type:</span>
+							<h:outputText value="#{dataImportModel.fileContentType}" /> 
+					</label>
+				</div>
+				<div class="form-row">
+					<label> <span>Physical Path:</span>
+							<h:outputText value="#{dataImportModel.filePath}" /> 
+					</label>
+				</div>
+				<div class="form-row">
+					<h:commandButton type="submit" value="View Inserted Dataset"
+						action="#{pageController.loadTableData}" styleClass="login-submit">
+							<f:param name="tableName" value="#{dataImportModel.tableName}" />
+						</h:commandButton>
+				</div>
+			
+			</div>
+			 
+
+		</div>
+	</h:form>
+	
+</div>
+<ui:include src="footer.xhtml"/>
+</html>

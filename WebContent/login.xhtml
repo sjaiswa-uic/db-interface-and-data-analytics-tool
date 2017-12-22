@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="footer, address, phone, icons" />
+
+<title>Login Form</title>
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+<link rel="stylesheet" href="assets/demo.css" />
+<link rel="stylesheet" href="assets/form-login.css" />
+<link rel="stylesheet" href="assets/header-user-dropdown.css" />
+<link rel="stylesheet" href="assets/font-awesome.min.css" />
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" />
+<link href='http://fonts.googleapis.com/css?family=Cookie'
+	rel='stylesheet' type='text/css' />
+
+
+
+</head>
+
+<header class="header-user-dropdown">
+
+<div class="header-limiter">
+	<h1>
+		<img src="assets/uicbusiness_logo_red.png" height="50" width="230"
+			alt="User Image" />
+	</h1>
+
+	<h1>
+	</h1>
+
+
+</div>
+
+</header>
+
+<ul>
+
+</ul>
+
+
+<div class="main-content">
+
+
+	<!-- You only need this form and the form-login.css -->
+	<h:form styleClass="form-login">
+
+		<div class="form-log-in-with-email">
+
+			<div class="form-white-background">
+				<div class="form-title-row">
+					<h1>Log in</h1>
+				</div>
+
+				<div class="form-row">
+					<label> <span>UserName*</span> <h:inputText id="username"
+							required="true" value="#{loginForm.username}"
+							requiredMessage="username is required" /> <h:message
+							for="username" style="color:red" />
+					</label>
+				</div>
+
+				<div class="form-row">
+					<label> <span>Password*</span> <h:inputSecret id="password"
+							required="true" value="#{loginForm.password}"
+							requiredMessage="password is required" /> <h:message
+							for="password" style="color:red" /></label>
+				</div>
+
+				<div class="form-row">
+					<label> <span>Host*</span> <h:selectOneMenu
+							value="#{loginForm.dbmsHost}" styleClass="dropdown">
+							<f:selectItem itemValue="131.193.209.54" itemLabel="54" />
+							<f:selectItem itemValue="131.193.209.57" itemLabel="57" />
+							<f:selectItem itemValue="localhost" itemLabel="localhost" />
+						</h:selectOneMenu>
+					</label>
+				</div>
+
+				<div class="form-row">
+					<label> <span>RDBMS*</span> <h:selectOneMenu
+							value="#{loginForm.dbms}">
+							<f:selectItem itemValue="mysql" itemLabel="MySQL" />
+							<f:selectItem itemValue="oracle" itemLabel="ORACLE" />
+							<f:selectItem itemValue="db2" itemLabel="DB2" />
+						</h:selectOneMenu>
+					</label>
+				</div>
+
+				<div class="form-row">
+					<label> <span>DBSchema*</span> <h:inputText
+							id="databaseSchema" required="true"
+							value="#{loginForm.databaseSchema}"
+							requiredMessage="Schema is required" /> <h:message
+							for="databaseSchema" style="color:red" />
+					</label>
+				</div>
+
+				<div class="form-row">
+					<h:commandButton type="submit" value="Log in"
+						action="#{loginController.authenticate}" styleClass="login-submit" />
+						
+						 
+				</div>
+				
+				  <span style="color: #6caee0;">(*) input required</span>
+				<h:outputText value="#{messageModel.status}" />
+			</div>
+			 
+
+		</div>
+	</h:form>
+</div>
+
+<ui:include src="footer.xhtml"/>
+
+</html>

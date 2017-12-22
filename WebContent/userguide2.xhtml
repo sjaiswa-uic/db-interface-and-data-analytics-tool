@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+</head>
+
+<body>
+<h:commandButton value="Back To Application" onclick="history.go(-1);return false;"/> <br/>
+<hr />
+<h1>User Guide</h1> <hr/>
+<p style="font-family:calibri;">Welcome to s17g307 Data Analysis Users guide.
+The following steps may help you in navigating through the application:</p>
+<h5>Database Login</h5>
+<p style="color:black;">Login with credentials in the database login page. Be sure to input correct login credentials and select the appropriate database servers.
+ After successful login, a page with the options of 'Data interaction', 'Data Import', 'Data Export', 'Descriptive stats', and 'Regression Analysis' at the top bar is displayed. <br/>
+<h5>Database Interaction</h5>
+The database interaction page consists of tables available in the database and an area to display all the columns of any table selected. Any specific data can be extracted from any column by putting a database query and running it in the "Enter Native SQL query text box".<br/>
+<h5>Data Import</h5>
+In the data import page, data files in the form of excel, csv, and tab delimited text can be uploaded to the server and inserted into a table. Selection of the file format, file type and header row available can be made by the drop down menus present in the page. It is important to understand the distinction between Metadata and regular data. Metadata is information about the data you want to upload. For instance, the names of each column and their associated data types can be stored in the metadata. Data is just the data itself that will go into the table. It should be noted that the header option must be properly set according to whether the data has headers or not. Otherwise the import may not work properly. After importing the data the user will have the option to unselect rows with problematic data and refrain from importing them altogether.<br/>
+<h5>Data Export</h5>
+Any table that has been imported can be exported in the form of an XML, Excel, or a CSV file in the 'Data Export' page. To make data available for export please see the Data Import section. <br/>
+<h5>Descriptive Statistics</h5>
+In the Descriptive statistics page, a list of datasets is available for analysis and permits the user to choose a specific dataset from a dropdown list to work with. The user can select any column from that table to get the statistics of that column. Similarly, in the graphical analysis tab, the user can select any column to get the univariate analysis by bar chart or pie chart.<br/>
+<h5>Regression Analysis</h5>
+In the Regression analysis page, a simple regression analysis is performed using one independent and one depend variable. The user can select any two columns. Upon submission the linear regression for the selected variables will be displayed. The first tab displays the quantitative statistics of the regression like regression equation, regression model, and ANOVA values. The second tab displays the graphical representation of the regression in the form of either a scatter plot or a time-series plot based on the user's selection.<br/>
+The user can log out anytime by the logout button.<br/> <hr/></p>
+
+</body>
+</html>

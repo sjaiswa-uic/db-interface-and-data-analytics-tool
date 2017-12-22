@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="footer, address, phone, icons" />
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" />
+<title>Data Import Review</title>
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+<link rel="stylesheet" href="assets/demo.css" />
+<link rel="stylesheet" href="assets/form-login.css" />
+<link rel="stylesheet" href="assets/header-second-bar.css" />
+<link href='http://fonts.googleapis.com/css?family=Cookie'
+	rel='stylesheet' type='text/css' />
+
+<style>
+body {
+	background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
+	color: #444;
+	font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+	text-shadow: 0 1px 0 #fff;
+}
+
+strong {
+	font-weight: bold; 
+}
+
+em {
+	font-style: italic; 
+}
+
+table {
+	background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 800px;
+}	
+
+th {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+}
+
+th:after {
+	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+	content: '';
+	display: block;
+	height: 25%;
+	left: 0;
+	margin: 1px 0 0 0;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+
+th:first-child {
+	border-left: 1px solid #777;	
+	box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+	box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #e8e8e8;
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+}
+
+td:first-child {
+	box-shadow: inset 1px 0 0 #fff;
+}	
+
+td:last-child {
+	border-right: 1px solid #e8e8e8;
+	box-shadow: inset -1px 0 0 #fff;
+}	
+
+tr {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png);	
+}
+
+tr:nth-child(odd) td {
+	background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
+}
+
+tr:last-of-type td {
+	box-shadow: inset 0 -1px 0 #fff; 
+}
+
+tr:last-of-type td:first-child {
+	box-shadow: inset 1px -1px 0 #fff;
+}	
+
+tr:last-of-type td:last-child {
+	box-shadow: inset -1px -1px 0 #fff;
+}	
+
+tbody:hover td {
+	color: transparent;
+	text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+	color: #444;
+	text-shadow: 0 1px 0 #fff;
+}
+.submit_button{
+    display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    width: 300px;
+    padding: 14px 22px;
+    border: 0;
+    cursor: pointer;
+    align : center;
+}
+</style>
+</head>
+
+<header class="header-two-bars">
+
+<div class="header-first-bar">
+
+	<div class="header-limiter">
+
+		<h1>
+			<img src="assets/uicbusiness_logo_red.png" height="50" width="230"
+				alt="User Image" />
+		</h1>
+
+		<nav> <a href="data-interaction.xhtml">Data Interaction</a> <a
+			href="#" class="selected">Data Import</a> <a href="data-export.xhtml">Data
+			Export</a> <a href="descriptive-model.xhtml">Descriptive Stats</a> <a
+			href="regression-model.xhtml">Regression Analysis</a> </nav>
+			<a href="system-memo.xhtml">System Memo</a>
+		<h:form>
+			<h:commandLink action="#{loginController.logout}" value="Logout"
+				styleClass="logout-button" />
+		</h:form>
+	</div>
+
+</div>
+
+<div class="header-second-bar">
+
+	<div class="header-limiter">
+		<h2>
+			<a href="#">Data Import S17G307</a>
+		</h2>
+
+		<nav> <a href="#"><i class="fa fa-comments-o"></i> </a> </nav>
+
+	</div>
+
+</div>
+
+</header>
+
+<ul></ul>
+
+
+<ul>
+
+</ul>
+
+
+<div class="main-content">
+
+
+	<!-- You only need this form and the form-login.css -->
+	<h:form prependId="false" enctype="multipart/form-data"
+		styleClass="form-login">
+
+			<div class="form-white-background">
+				<div class="form-title-row">
+					<h1>Review File</h1>
+				</div>
+
+				<div class="form-row">
+					<h:commandButton action="#{dataImportController.insertDataFile}"
+					value="Upload" styleClass="submit_button">
+					</h:commandButton>
+				</div>
+				<!-- Displaying the generic table data retrieved from backend -->
+				<h:panelGroup layout="block" id="table_data">
+					<table>
+						<tr>
+							<th>Please Select</th>
+							<ui:repeat value="#{dataImportModel.tableData.columnNames}"
+								var="columnName">
+								<th>#{columnName}</th>
+							</ui:repeat>
+						</tr>
+
+						<ui:repeat varStatus="status"
+							value="#{dataImportModel.tableData.rows}" var="row">
+							<tr>
+								<ui:fragment rendered="#{row.validity eq true}">
+									<td><strong><input type="checkbox" name="selectedDataEntries"
+										id="selectedDataEntries" value="#{status.index}"
+										checked="checked" /> <h:graphicImage value="green.png"
+											width="15" height="15" /></strong></td>
+								</ui:fragment>
+
+								<ui:fragment rendered="#{row.validity eq false}">
+									<td><input type="checkbox" name="selectedDataEntries"
+										id="selectedDataEntries" value="#{status.index}" /> <h:graphicImage
+											value="Warning.png" width="15" height="15" /></td>
+								</ui:fragment>
+
+								<ui:repeat value="#{row.rowValues}" var="rowValue">
+									<td>#{rowValue}</td>
+								</ui:repeat>
+							</tr>
+						</ui:repeat>
+					</table>
+				</h:panelGroup>
+
+				<div class="form-row">
+				<h:commandButton action="#{dataImportController.insertDataFile}"
+					value="Upload" styleClass="submit_button">
+				</h:commandButton>
+				</div>
+				<h:outputText value="#{dataImportModel.status}"></h:outputText>
+
+			</div>
+
+	</h:form>
+
+</div>
+
+<ui:include src="footer.xhtml"/>
+</html>

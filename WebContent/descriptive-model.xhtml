@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+<h:outputStylesheet library="styles" name="style.css" target="body" />
+<h:outputScript library="javascript" name="spinner.js" target="body" />
+<meta name="keywords" content="footer, address, phone, icons" />
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" />
+<link rel="stylesheet" href="assets/demo.css" />
+<link rel="stylesheet" href="assets/form-mini.css" />
+<link rel="stylesheet" href="assets/header-second-bar.css"/>
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+
+<f:metadata>
+	<f:event listener="#{descriptiveModelController.processBeforePageLoad}" type="preRenderView"></f:event>
+</f:metadata>
+
+<title>Mini Form</title>
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.wrapper {
+  margin: 10px 10px 10px 10px;
+  max-width: 800px;
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  color: #3b3b3b;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+  
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;`
+  }
+}
+
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}
+
+</style>
+
+
+</head>
+
+
+<header class="header-two-bars">
+
+	<div class="header-first-bar">
+
+		<div class="header-limiter">
+
+			<h1><img src="assets/uicbusiness_logo_red.png" height="50" width="230"
+			alt="User Image" /></h1>
+
+			<nav>
+				<a href="data-interaction.xhtml">Data Interaction</a>
+				<a href="data-import.xhtml">Data Import</a>
+				<a href="data-export.xhtml" >Data Export</a>
+				<a href="descriptive-model.xhtml" class="selected">Descriptive Stats</a>
+				<a href="regression-model.xhtml">Regression Analysis</a>
+				<a href="system-memo.xhtml">System Memo</a>
+			</nav>
+			
+			<h:form>
+			<h:commandLink action="#{loginController.logout}" value="Logout"
+				styleClass="logout-button" />
+		</h:form>
+		</div>
+
+	</div>
+
+	<div class="header-second-bar">
+
+		<div class="header-limiter">
+			<h2><a href="#">Descriptive Statistics S17G307</a></h2>
+
+			<nav>
+				<a href="#"><i class="fa fa-comments-o"></i> </a>
+				
+			</nav>
+
+		</div>
+
+	</div>
+
+</header>
+
+<ul></ul>
+
+
+
+		<div class="tab_container">
+			<input id="tab2" class="tab_class" type="radio" name="tabs" checked ="checked"/>
+			<label class="tab_label_class" for="tab2"><i class="fa fa-pencil-square-o"></i><span>Descriptive Statistics</span></label>
+
+			<input id="tab3" type="radio" class="tab_class" name="tabs"/>
+			<label class="tab_label_class" for="tab3"><i class="fa fa-bar-chart-o"></i><span>Graphical Analysis</span></label>
+
+			<section id="content2" class="tab-content">
+				<h3>Select table to Proceed</h3>
+		      	<div class="main-content">
+
+						<h:form id="form">
+					
+							<div class="form-mini-container">
+								<h1>List of Tables</h1>
+								<div class="form-mini" method="post" action="#">
+					
+									<h:panelGroup layout="block" id="table_group" styleClass="form-row">
+										<label> <h:selectOneListbox value="#{descriptiveForm.dataLabel}"
+												id="select_file" size="5">
+												<f:selectItems value="#{descriptiveModel.dataSet}" var="dataSet"
+													itemLabel="#{dataSet}" itemValue="#{dataSet}" id="select_tables"></f:selectItems>
+												<f:ajax listener="#{descriptiveModelController.getColumns}" execute="table_group" render="column_group status_message columns_group"/>
+											</h:selectOneListbox> 
+										</label>
+									</h:panelGroup>
+					
+									<div class="form-row form-last-row">
+										<h:commandButton value="Analyze Table" type="button" styleClass="submit_button"
+										action="#{descriptiveModelController.getAllStasticalData}">
+										<f:ajax execute="table_group" render="table_data status_message"></f:ajax>
+									</h:commandButton>
+									</div>
+								</div>
+							</div>
+					
+							<h:panelGroup id="columns_group">
+								<h:panelGroup rendered="#{not empty descriptiveModel.columnList}">
+									<div class="form-mini-container">
+										<h1>List of Columns</h1>
+										<div class="form-mini" method="post" action="#">
+							
+											<h:panelGroup layout="block" id="column_group" styleClass="form-row">
+												<label> <h:selectManyListbox value="#{descriptiveForm.columnList}"
+														id="select_column1" size="5">
+														<f:selectItems value="#{descriptiveModel.columnList}" var="columnName"
+															itemLabel="#{columnName}" itemValue="#{columnName}"
+															id="select_column"></f:selectItems>
+													</h:selectManyListbox> 
+												</label>
+											</h:panelGroup>
+							
+											<div class="form-row form-last-row">
+												<h:commandButton value="Analyze" type="button"
+													styleClass="dual_button" action="#{descriptiveModelController.getDataSetByLabel}">
+													<f:ajax execute="table_group column_group" render="table_data status_message"></f:ajax>
+												</h:commandButton>
+							
+												<h:commandButton value="Compute" type="button"
+													styleClass="dual_button" action="#{descriptiveModelController.computeColumn}">
+													<f:ajax execute="table_group column_group"
+														render="column_group status_message"></f:ajax>
+												</h:commandButton>
+											</div>
+										</div>
+									</div>
+								</h:panelGroup>
+							</h:panelGroup>
+					
+							<!-- Status Message for Backend Java calls -->
+							<h:panelGroup layout="block" style="height:80px;">
+								<h:outputText id="status_message" value="#{descriptiveModel.status}"></h:outputText>
+							</h:panelGroup>
+					
+							<!-- Displaying the generic table data retrieved from backend -->
+							
+							<h:panelGroup id="table_data">
+								<h:panelGroup rendered="#{not empty descriptiveModel.dataPart1.columnNames}">
+							<div class="form-mini-container" style="max-width: 800px;">
+							
+								<div class="table">
+    
+								    <div class="row header blue">
+								      <div class="cell">
+								        Dataset
+								      </div>
+								      <div class="cell">
+								        Details
+								      </div>
+								    </div>
+								    
+								    <div class="row">
+								      <div class="cell">
+								        Dataset Name
+								      </div>
+								      <div class="cell">
+										#{descriptiveModel.datasetName}
+								      </div>
+								    </div>
+								    <div class="row">
+								      <div class="cell">
+								        Number of Observations
+								      </div>
+								      <div class="cell">
+								        #{descriptiveModel.numberOfObservations}
+								      </div>
+								    </div>
+								  </div>
+  
+  								<div class="table">
+    
+									    <div class="row header">
+										    <ui:repeat value="#{descriptiveModel.dataPart1.columnNames}" var="columnName">
+												<div class="cell">
+													#{columnName}
+									      		</div>
+											</ui:repeat>
+									    </div>
+    
+    									<ui:repeat value="#{descriptiveModel.dataPart1.dataRows}" var="rows">
+											<div class="row">
+												<ui:repeat value="#{rows}" var="rowValue">
+													<div class="cell">
+													#{rowValue}
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+							  	</div>
+							  
+							  <div class="table">
+    
+									    <div class="row header green">
+										    <ui:repeat value="#{descriptiveModel.dataPart2.columnNames}" var="columnName">
+												<div class="cell">
+													#{columnName}
+									      		</div>
+											</ui:repeat>
+									    </div>
+    
+    									<ui:repeat value="#{descriptiveModel.dataPart2.dataRows}" var="rows">
+											<div class="row">
+												<ui:repeat value="#{rows}" var="rowValue">
+													<div class="cell">
+													#{rowValue}
+													</div>
+												</ui:repeat>
+											</div>
+										</ui:repeat>
+								  </div>
+							</div>
+							</h:panelGroup>
+							</h:panelGroup>
+						</h:form>
+						<img id="ajaxloader" src="ajaxloader.gif" style="display: none;" />
+						
+						<script>
+						jsf.ajax.addOnEvent(function(data) {
+							var ajaxstatus = data.status; // Can be "begin", "complete" and "success"
+							var ajaxloader = document.getElementById("ajaxloader");
+					
+							switch (ajaxstatus) {
+							case "begin": // This is called right before ajax request is been sent.
+								ajaxloader.style.display = 'block';
+								break;
+					
+							case "complete": // This is called right after ajax response is received.
+								ajaxloader.style.display = 'none';
+								break;
+					
+							case "success": // This is called when ajax response is successfully processed.
+								// NOOP.
+								break;
+							}
+						});
+					</script>
+					
+					</div>
+
+			</section>
+			
+			<!-- Graphical Analysis Starts -->
+			<section id="content3" class="tab-content">
+				<h3>Select table to Proceed</h3>
+		      	<div class="main-content">
+
+						<h:form id="form1">
+					
+							<div class="form-mini-container">
+								<h1>List of Tables</h1>
+								<div class="form-mini" method="post" action="#">
+					
+									<h:panelGroup layout="block" id="table_group1" styleClass="form-row">
+										<label> <h:selectOneListbox value="#{descriptiveForm.dataLabel}"
+												id="select_file" size="7">
+												<f:selectItems value="#{descriptiveModel.dataSet}" var="dataSet"
+													itemLabel="#{dataSet}" itemValue="#{dataSet}" id="select_tables1"></f:selectItems>
+												<f:ajax listener="#{descriptiveModelController.getColumns}" execute="table_group1" render="column_group1 status_message1 columns_group1"/>
+											</h:selectOneListbox> 
+										</label>
+									</h:panelGroup>
+					
+									<div class="form-row form-last-row">
+										
+									</div>
+								</div>
+							</div>
+					
+							<h:panelGroup id="columns_group1">
+								<h:panelGroup rendered="#{not empty descriptiveModel.columnList}">
+									<div class="form-mini-container">
+										<h1>List of Columns</h1>
+										<div class="form-mini" method="post" action="#">
+							
+											<h:panelGroup layout="block" id="column_group1" styleClass="form-row">
+												<span>Select Column</span> 
+												<label><h:selectOneMenu value="#{descriptiveForm.columnName}"
+														id="select_column11">
+														<f:selectItems value="#{descriptiveModel.columnList}" var="columnName"
+															itemLabel="#{columnName}" itemValue="#{columnName}"
+															id="select_column1"></f:selectItems>
+													</h:selectOneMenu> 
+												</label>
+											</h:panelGroup>
+											<h:panelGroup layout="block" id="column_group2" styleClass="form-row">
+												<span>Select Type</span> 
+												<label><h:selectOneMenu value="#{descriptiveForm.renderType}">
+														<f:selectItem itemLabel="Pie" itemValue="Pie" />
+														<f:selectItem itemLabel="Bar" itemValue="Bar" />
+													</h:selectOneMenu> 
+												</label>
+											</h:panelGroup>
+							
+											<div class="form-row form-last-row">
+												<h:commandButton value="Get Graphical Analysis" type="button"
+													styleClass="submit_button" action="#{descriptiveModelController.getGraphicalAnalysis}">
+													<f:ajax execute="table_group1 column_group1 column_group2" render="table_data1 status_message1"></f:ajax>
+												</h:commandButton>
+											</div>
+										</div>
+									</div>
+								</h:panelGroup>
+							</h:panelGroup>
+
+							<!-- Status Message for Backend Java calls -->
+							<h:panelGroup layout="block" style="height:80px;">
+								<h:outputText id="status_message1" value="#{descriptiveModel.status}"></h:outputText>
+							</h:panelGroup>
+					
+							<!-- Displaying the generic table data retrieved from backend -->
+							<h:panelGroup layout="block" id="table_data1">
+						  			<h:graphicImage value="#{descriptiveModel.imagePath}"	width="600" height="600"  />
+							</h:panelGroup>
+						</h:form>
+						<img id="ajaxloader" src="ajaxloader.gif" style="display: none;" />
+						
+						<script>
+						jsf.ajax.addOnEvent(function(data) {
+							var ajaxstatus = data.status; // Can be "begin", "complete" and "success"
+							var ajaxloader = document.getElementById("ajaxloader");
+					
+							switch (ajaxstatus) {
+							case "begin": // This is called right before ajax request is been sent.
+								ajaxloader.style.display = 'block';
+								break;
+					
+							case "complete": // This is called right after ajax response is received.
+								ajaxloader.style.display = 'none';
+								break;
+					
+							case "success": // This is called when ajax response is successfully processed.
+								// NOOP.
+								break;
+							}
+						});
+					</script>
+					
+					</div>
+			</section>
+
+		</div>
+<ui:include src="footer.xhtml"/>
+
+</html>

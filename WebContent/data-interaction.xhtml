@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="footer, address, phone, icons" />
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" />
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+<h:outputStylesheet library="styles" name="style.css" target="body" />
+<h:outputScript library="javascript" name="spinner.js" target="body" />
+<link rel="stylesheet" href="assets/demo.css" />
+<link rel="stylesheet" href="assets/form-mini.css" />
+<link rel="stylesheet" href="assets/header-second-bar.css"/>
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" href="assets/font-awesome.min.css"/>
+
+<f:metadata>
+	<f:event listener="#{pageController.processBeforePageLoad}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<title>Mini Form</title>
+
+<style>
+
+
+strong {
+	font-weight: bold; 
+}
+
+em {
+	font-style: italic; 
+}
+
+table {
+	background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 800px;
+}	
+
+th {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+}
+
+th:after {
+	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+	content: '';
+	display: block;
+	height: 25%;
+	left: 0;
+	margin: 1px 0 0 0;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+
+th:first-child {
+	border-left: 1px solid #777;	
+	box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+	box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #e8e8e8;
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+}
+
+td:first-child {
+	box-shadow: inset 1px 0 0 #fff;
+}	
+
+td:last-child {
+	border-right: 1px solid #e8e8e8;
+	box-shadow: inset -1px 0 0 #fff;
+}	
+
+tr {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png);	
+}
+
+tr:nth-child(odd) td {
+	background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
+}
+
+tr:last-of-type td {
+	box-shadow: inset 0 -1px 0 #fff; 
+}
+
+tr:last-of-type td:first-child {
+	box-shadow: inset 1px -1px 0 #fff;
+}	
+
+tr:last-of-type td:last-child {
+	box-shadow: inset -1px -1px 0 #fff;
+}	
+
+</style>
+
+
+</head>
+
+
+<header class="header-two-bars">
+
+	<div class="header-first-bar">
+
+		<div class="header-limiter">
+
+			<h1><img src="assets/uicbusiness_logo_red.png" height="50" width="230"
+			alt="User Image" /></h1>
+
+			<nav>
+				<a href="#" class="selected">Data Interaction</a>
+				<a href="data-import.xhtml">Data Import</a>
+				<a href="data-export.xhtml" >Data Export</a>
+				<a href="descriptive-model.xhtml">Descriptive Stats</a>
+				<a href="regression-model.xhtml">Regression Analysis</a>
+				<a href="system-memo.xhtml">System Memo</a>
+			</nav>
+			
+			<h:form>
+			<h:commandLink action="#{loginController.logout}" value="Logout"
+				styleClass="logout-button" />
+		</h:form>
+		</div>
+
+	</div>
+
+	<div class="header-second-bar">
+
+		<div class="header-limiter">
+			<h2><a href="#">Database Interaction S17G307</a></h2>
+
+			<nav>
+				<a href="#"><i class="fa fa-comments-o"></i> </a>
+				
+			</nav>
+
+		</div>
+
+	</div>
+
+</header>
+
+<ul></ul>
+
+<div class="main-content">
+
+	<h:form id="form">
+
+		<div class="form-mini-container">
+			<h1>List of Tables</h1>
+			<div class="form-mini" method="post" action="#">
+
+				<h:panelGroup layout="block" id="table_group" styleClass="form-row">
+					<label> <h:selectOneListbox value="#{pageForm.tableName}"
+							id="select_tables1" size="5">
+							<f:selectItems value="#{pageModel.tableList}" var="tableName"
+								itemLabel="#{tableName}" itemValue="#{tableName}"
+								id="select_tables"></f:selectItems>
+						</h:selectOneListbox>
+					</label>
+				</h:panelGroup>
+
+				<div class="form-row form-last-row">
+					<h:commandButton value="Table List" type="button"
+						styleClass="dual_button" action="#{pageController.getTables}">
+						<f:ajax render="table_group" />
+					</h:commandButton>
+					<h:commandButton value="Get Table" type="button"
+						styleClass="dual_button" action="#{pageController.executeSelect}">
+						<f:ajax execute="table_group" render="table_data status_message"></f:ajax>
+					</h:commandButton>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="form-mini-container">
+			<h1>List of Columns</h1>
+			<div class="form-mini" method="post" action="#">
+
+				<h:panelGroup layout="block" id="column_group" styleClass="form-row">
+					<label> <h:selectManyListbox value="#{pageForm.columnList}"
+							id="select_column1" size="5">
+							<f:selectItems value="#{pageModel.columnList}" var="columnName"
+								itemLabel="#{columnName}" itemValue="#{columnName}"
+								id="select_column"></f:selectItems>
+						</h:selectManyListbox>
+					</label>
+				</h:panelGroup>
+
+				<div class="form-row form-last-row">
+					<h:commandButton value="Column List" type="button"
+						styleClass="dual_button" action="#{pageController.getColumns}">
+						<f:ajax execute="table_group" render="column_group status_message"></f:ajax>
+					</h:commandButton>
+
+					<h:commandButton value="Get Column" type="button"
+						styleClass="dual_button" action="#{pageController.executeSelect}">
+						<f:ajax execute="table_group column_group"
+							render="table_data status_message"></f:ajax>
+					</h:commandButton>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-mini-container">
+			<h1>Enter Native SQL Query</h1>
+			<div class="form-mini" method="post" action="#">
+
+				<!-- Text Area for manual query input -->
+				<h:panelGroup id="query_group" styleClass="form-row">
+					<h:inputTextarea value="#{pageForm.query}" cols="50" rows="6" />
+				</h:panelGroup>
+
+				<div class="form-row form-last-row">
+					<h:commandButton value="Run SQL" type="button" styleClass="cluster_button"
+						action="#{pageController.executeQuery}">
+						<f:ajax execute="query_group" render="table_data status_message"></f:ajax>
+					</h:commandButton>
+					<h:commandButton value="Create Table" type="button" size="7" styleClass="cluster_button"
+						action="#{pageController.executeUpdate}">
+						<f:ajax execute="query_group" render="table_data status_message"></f:ajax>
+					</h:commandButton>
+					<h:commandButton value="Drop Table" type="button" size="7" styleClass="cluster_button"
+						action="#{pageController.executeUpdate}">
+						<f:ajax execute="query_group" render="table_data status_message"></f:ajax>
+					</h:commandButton>
+				</div>
+			</div>
+		</div>
+		<!-- Action Button Start -->
+
+
+
+
+		<!-- Action Buttons end -->
+
+		<!-- Table Dropdown -->
+
+		<!-- Column Dropdown -->
+
+		<!-- Text Area for manual query input -->
+
+		<!-- Status Message for Backend Java calls -->
+		<h:panelGroup layout="block" id="status_message" style="height:80px;">
+			<h:outputText value="#{messageModel.status}" />
+			<br> </br>
+			Columns Affected : <h:outputText value="#{messageModel.columnCount}" />
+			<br> </br>
+			Rows Affected : <h:outputText value="#{messageModel.rowCount}" />
+		</h:panelGroup>
+
+		<!-- Displaying the generic table data retrieved from backend -->
+		<h:panelGroup layout="block" id="table_data">
+		<h:panelGroup layout="block" rendered="#{not empty pageModel.tableData}">
+		<div class="form-mini-container">
+		
+		<div class="form-mini" method="post" action="#">
+		<h1>Table Data</h1>
+			<table>
+				<tr>
+					<ui:repeat value="#{pageModel.tableData.columnNames}"
+						var="columnName">
+						<th>#{columnName}</th>
+					</ui:repeat>
+				</tr>
+
+				<ui:repeat value="#{pageModel.tableData.dataRows}" var="rows">
+					<tr>
+						<ui:repeat value="#{rows}" var="rowValue">
+							<td>#{rowValue}</td>
+						</ui:repeat>
+					</tr>
+				</ui:repeat>
+			</table>
+			</div>
+			</div>
+		</h:panelGroup>
+		</h:panelGroup>
+	</h:form>
+	<img id="ajaxloader" src="ajaxloader.gif" style="display: none;" />
+	
+	<script>
+	jsf.ajax.addOnEvent(function(data) {
+		var ajaxstatus = data.status; // Can be "begin", "complete" and "success"
+		var ajaxloader = document.getElementById("ajaxloader");
+
+		switch (ajaxstatus) {
+		case "begin": // This is called right before ajax request is been sent.
+			ajaxloader.style.display = 'block';
+			break;
+
+		case "complete": // This is called right after ajax response is received.
+			ajaxloader.style.display = 'none';
+			break;
+
+		case "success": // This is called when ajax response is successfully processed.
+			// NOOP.
+			break;
+		}
+	});
+</script>
+
+</div>
+
+<ui:include src="footer.xhtml"/>
+
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="footer, address, phone, icons" />
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" />
+<h:outputScript library="javax.faces" name="jsf.js" target="body" />
+<h:outputStylesheet library="styles" name="style.css" target="body" />
+<h:outputScript library="javascript" name="spinner.js" target="body" />
+<link rel="stylesheet" href="assets/demo.css" />
+<link rel="stylesheet" href="assets/form-mini.css" />
+<link rel="stylesheet" href="assets/header-second-bar.css"/>
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" href="assets/font-awesome.min.css"/>
+
+<f:metadata>
+	<f:event listener="#{pageController.processBeforePageLoad}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<title>Mini Form</title>
+
+</head>
+
+
+<header class="header-two-bars">
+
+	<div class="header-first-bar">
+
+		<div class="header-limiter">
+
+			<h1><img src="assets/uicbusiness_logo_red.png" height="50" width="230"
+			alt="User Image" /></h1>
+
+			<nav>
+				<a href="data-interaction.xhtml" >Data Interaction</a>
+				<a href="data-import.xhtml">Data Import</a>
+				<a href="data-export.xhtml" class="selected">Data Export</a>
+				<a href="descriptive-model.xhtml">Descriptive Stats</a>
+				<a href="regression-model.xhtml">Regression Analysis</a>
+				<a href="system-memo.xhtml">System Memo</a>
+			</nav>
+			
+
+			<h:form>
+			<h:commandLink action="#{loginController.logout}" value="Logout"
+				styleClass="logout-button" />
+		</h:form>
+		</div>
+
+	</div>
+
+	<div class="header-second-bar">
+
+		<div class="header-limiter">
+			<h2><a href="#">Database Export S17G307</a></h2>
+
+			<nav>
+				<a href="#"><i class="fa fa-comments-o"></i> </a>
+				
+			</nav>
+
+		</div>
+
+	</div>
+
+</header>
+
+<ul></ul>
+
+<div class="main-content">
+
+	<h:form id="form">
+		<div class="form-mini-container">
+			<h1>List of Tables</h1>
+			<div class="form-mini" method="post" action="#">
+
+				<h:panelGroup layout="block" id="table_group" styleClass="form-row">
+					<label> <h:selectOneListbox value="#{pageForm.tableName}"
+							id="select_tables1" size="5">
+							<f:selectItems value="#{pageModel.tableList}" var="tableName"
+								itemLabel="#{tableName}" itemValue="#{tableName}"
+								id="select_tables"></f:selectItems>
+						</h:selectOneListbox>
+					</label>
+				</h:panelGroup>
+
+				<div class="form-row form-last-row">
+					<h:commandButton value="Export Excel" type="submit"
+						image="/img/excel.ico" style=" width: 75px; height: 70px;" action="#{dataExportController.exportData('xls')}">
+					</h:commandButton>
+					<h:commandButton value="Export CSV" type="submit"
+						image="/img/csv.png" style=" width: 78px; height: 70px; margin-left: 4px;" action="#{dataExportController.exportData('csv')}">
+					</h:commandButton>
+					<h:commandButton value="Export XML" type="submit"
+						image="/img/xml.png" style=" width: 76px; height: 70px; margin-left: 4px;"  action="#{dataExportController.exportData('xml')}">
+					</h:commandButton>
+				</div>
+			</div>
+		</div>
+	</h:form>
+</div>
+
+<ui:include src="footer.xhtml"/>
+
+</html> 

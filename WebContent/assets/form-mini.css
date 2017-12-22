@@ -1,0 +1,170 @@
+html{
+    background-color: #f3f3f3;
+    text-align: center;
+}
+
+.form-mini-container{
+    max-width: 315px;
+    margin: auto;
+    font: normal 14px sans-serif;
+    text-align: center;
+    color: #5f5f5f;
+    display: inline-table;
+}
+
+.form-big-container{
+    max-width: 500px;
+    margin: auto;
+    font: normal 14px sans-serif;
+    text-align: center;
+    color: #5f5f5f;
+    display: inline-table;
+    overflow:auto;
+}
+
+.form-mini-container .form-big-container h1{
+    color:  #4c565e;
+    font-size: 24px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #6caee0;
+    font-weight: bold;
+    margin: 0;
+}
+
+.form-mini{
+    box-sizing: border-box;
+    padding: 40px;
+
+    background-color:  #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form-mini .form-row{
+    display: block;
+    text-align: left;
+    margin-bottom: 23px;
+}
+
+.form-mini input,
+.form-mini select{
+    box-sizing: border-box;
+    width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 18px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-mini input[type=radio],
+.form-mini input[type=checkbox]{
+    box-shadow: none;
+    width: auto;
+}
+
+.form-mini select{
+    color: inherit;
+    background-color: #ffffff;
+}
+
+.form-mini .form-checkbox span{
+    margin-left: 5px;
+}
+
+.form-mini .form-checkbox input{
+    width: auto;
+}
+
+.form-mini .form-radio-buttons > div{
+    margin-bottom: 10px;
+}
+
+.form-mini .form-radio-buttons input{
+    width: auto;
+}
+
+.form-mini .form-radio-buttons label span{
+    margin-left: 8px;
+}
+
+.form-mini .form-last-row{
+    margin: 35px auto 0;
+}
+
+.form-mini button{
+    display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 14px 22px;
+    border: 0;
+    cursor: pointer;
+}
+
+.submit_button{
+    display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 14px 22px;
+    border: 0;
+    cursor: pointer;
+}
+
+.form-mini .cluster_button{
+  display: inline-block;
+  border-radius: 2px;
+  background-color:  #6caee0;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  width: 30%;
+  padding: 14px 22px;
+  border: 0;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.form-mini .dual_button{
+  display: inline-block;
+  border-radius: 2px;
+  background-color:  #6caee0;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+  width: 45%;
+  padding: 14px 22px;
+  border: 0;
+  cursor: pointer;
+  margin-left: 7px;
+}
+
+/* Placeholder color */
+
+.form-mini ::-webkit-input-placeholder {
+    color:  #999;
+}
+
+.form-mini ::-moz-placeholder {
+    color:  #999;
+    opacity: 1;
+}
+
+.form-mini :-ms-input-placeholder {
+    color:  #999;
+}
+
+/*	Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 600px) {
+
+    .form-mini-container{
+        margin-top: 0;
+    }
+
+}
